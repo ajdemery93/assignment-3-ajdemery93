@@ -1,5 +1,5 @@
 ---
-title: "Amelia-Juliette Demery's website"
+title: "Amelia-Juliette Demery, M.S."
 author: "Amelia"
 date: "3/1/2021"
 output: html_document
