@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Monique</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="amelia.html">Amelia-Juliette</a>
+</li>
+<li>
+  <a href="monique.html">Monique</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Monique</h1>
+
+</div>
+
+
+<ul>
+<li>Monique Pipkin is:
+<ul>
+<li>A 2nd year PhD Student</li>
+<li>A member of EEB and Cornell Lab of Ornithology</li>
+<li>studying avian plumage coloration.</li>
+</ul></li>
+</ul>
+<p><img src="data:image/jpeg;base64,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" /></p>
+<div id="monique-is-holding-a-rufous-motmot-baryphthengus-martii-specimen-from-the-cornell-university-museum-of-vertebrates" class="section level6">
+<h6>Monique is holding a Rufous motmot (<em>Baryphthengus martii</em>) specimen from the Cornell University Museum of Vertebrates</h6>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
